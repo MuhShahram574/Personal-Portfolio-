@@ -1,0 +1,382 @@
+/* //////////////////// */
+/* Gernal Styling */
+/* //////////////////// */
+
+.container {
+  max-width: 120rem;
+  margin: auto;
+}
+
+section {
+  padding: 5.4rem 0;
+  scroll-margin-top: 80px;
+  padding-top: 60px;
+}
+
+.description {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin-bottom: 2.4rem;
+}
+
+/* Cursor styling */
+
+.cursor {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1111;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  box-shadow: 0 0 10px 5px cyan;
+}
+.inner {
+  border: 2px solid rgb(255, 255, 255);
+}
+.outer {
+  box-shadow: 0 0 10px cyan, inset 0 0 5px 5px cyan;
+  height: 35px;
+  width: 35px;
+  transition: all 450ms ease-out;
+  background-color: #f7f7f75f;
+}
+
+.cursor.hover {
+  transition: all 250ms ease-in-out;
+  transform: translate(-50%, -50%) scale(3);
+}
+
+/* Add these new button animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* GRID CLASSES STYLING  */
+.grid {
+  display: grid;
+  padding: 2rem;
+}
+
+.gap-padding {
+  gap: 3rem;
+  padding: 2rem;
+}
+
+.grid-col-2 {
+  grid-template-columns: repeat(2, minmax(30rem, 1fr));
+}
+.grid-col-3 {
+  grid-template-columns: repeat(3, minmax(30rem, 1fr));
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: #0b1028;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0b1028;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #34e5ff, #3772ff);
+  border-radius: 1rem;
+  border: 3px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #3772ff, #34e5ff);
+}
+
+/* section tagline style */
+.section-tagline {
+  position: relative;
+  display: inline-block;
+  padding: 01rem 2rem;
+  background: rgba(52, 228, 255, 0.126);
+  border-radius: 3rem;
+  margin-bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+}
+
+.section-heading {
+  position: relative;
+  text-align: center;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3.6rem;
+}
+
+/* key points of my sections */
+
+.skill-tags {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.skill-tags span {
+  position: relative;
+  overflow: hidden;
+  background: rgba(52, 229, 255, 0.03);
+  border: 1px solid rgba(52, 229, 255, 0.15);
+  box-shadow: 0 2px 10px rgba(52, 229, 255, 0.05);
+  font-size: 1.3rem;
+  color: #34e5ff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 3rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.skill-tags span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 229, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.skill-tags span:hover::before {
+  left: 100%;
+}
+
+.skill-tags span:hover {
+  background: rgba(52, 229, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(52, 229, 255, 0.1);
+}
+
+/* Add hover effect to description cards */
+.description-card:hover .skill-title {
+  background: linear-gradient(45deg, #34e5ff, #3772ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* scroll down animation */
+
+.scroll {
+  transform: translateX(-50%);
+  text-align: center;
+  border: 2px solid rgba(52, 229, 255, 0.3);
+  padding: 4rem 1rem;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: scrollDownBounce 2s infinite;
+  background-color: rgba(11, 16, 40, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(52, 229, 255, 0.1),
+    inset 0 0 10px rgba(52, 229, 255, 0.05);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.scroll:hover {
+  background-color: rgba(52, 229, 255, 0.15);
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: 0 0 30px rgba(52, 229, 255, 0.2),
+    inset 0 0 15px rgba(52, 229, 255, 0.1);
+  border-color: rgba(52, 229, 255, 0.5);
+}
+
+@keyframes scrollDownBounce {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.scroll-down-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: #34e5ff;
+  transition: all 0.3s;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+}
+
+.scroll-down-link span {
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.scroll-down-link i {
+  animation: bounce 1.8s ease-in-out infinite;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-8px);
+  }
+}
+
+.scroll-down-link:hover {
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.scroll-down {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+}
+
+.scroll-up {
+  position: fixed;
+  right: 3%;
+  bottom: 6%;
+  display: none;
+  z-index: 11;
+}
+
+/* ////////////// */
+/* LOADER STYLING */
+/* ////////////// */
+
+
+figure {
+  display: none;
+  --size: 15vmin;
+  --duration: 4s;
+  --direction: 1;
+  --pull: -1.25;
+  perspective: 30rem;
+  display: grid;
+  grid-template-areas: "figure";
+  place-items: center;
+  inline-size: var(--size);
+  aspect-ratio: 1;
+  animation: spin var(--duration) ease-in-out infinite;
+}
+
+figure > * {
+  --radius: calc(var(--size) / 2);
+  --deg: calc(var(--i) * (360deg / 12));
+  --hs: 225 100%;
+  --transform-start: translate3d(
+      calc(cos(var(--deg)) * var(--radius)),
+      calc(sin(var(--deg)) * var(--radius)),
+      0
+    )
+    rotate(calc(var(--deg)));
+  grid-area: figure;
+  background-color: hsl(var(--hs) var(--l, 60%));
+  inline-size: calc(var(--size) / 4);
+  aspect-ratio: 1;
+  clip-path: polygon(25% 25%, 100% 50%, 25% 75%, 0% 50%);
+  transform: var(--transform-start);
+  transform-style: preserve-3d;
+  animation: diamonds var(--duration) cubic-bezier(0.87, 0, 0.13, 1) infinite;
+}
+
+figure:nth-child(2) {
+  --size: 30vmin;
+  --direction: -1;
+  --l: 70%;
+}
+
+figure:nth-child(3) {
+  --size: 55vmin;
+  --pull: -1.125;
+  --l: 80%;
+}
+
+@keyframes spin {
+  0%,
+  25% {
+    transform: scaleX(var(--direction)) rotate(0);
+  }
+
+  75%,
+  100% {
+    transform: scaleX(var(--direction)) rotate(1turn);
+  }
+}
+
+@keyframes diamonds {
+  0%,
+  20% {
+    transform: var(--transform-start);
+  }
+
+  50% {
+    clip-path: polygon(75% 25%, 100% 50%, 75% 75%, 0% 50%);
+    transform: translate3d(
+        calc(cos(var(--deg)) * var(--radius) * var(--pull)),
+        calc(sin(var(--deg)) * var(--radius) * var(--pull)),
+        5rem
+      )
+      rotate(calc(var(--deg) + 90deg));
+  }
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 10px;
+      }
+      :root {
+        --main-col: #fbfafc;
+        --nav-color: #6c471a;
+        --primary-color: orange;
+        --primary-size: 5.4rem;
+        --cta: #08ad08;
+        --cta-hover: #068a06;
+        --heros-color: #5C3200;
+      }
+      body {
+        font-family: sans-serif;
+        background-color: rgb(2, 2, 83);
+        color: var(--main-col);
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        background-color: var(--nav-color);
+        font-size: 2rem;
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+      .logo{
+        cursor: pointer;
+      }
+      .navbar ul {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+      }
+      .navbar ul li a {
+        text-decoration: none;
+        color: var(--main-col);
+        font-size: 1.8rem;
+        padding: 9px 18px;
+        display: inline-block;
+        transition: all 0.5s;
+        border-radius: 4px;
+      }
+
+      .navbar ul li a:hover {
+        background-color: var(--cta);
+      }
+
+      .navbar ul :last-child a {
+        background-color: var(--cta);
+      }
+      .navbar ul :last-child a:hover {
+        background-color: var(--cta-hover);
+      }
+
+      .heros-section {
+        background-color: var(--heros-color);
+        height: 100vh;
+        padding-top: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .primary-heading {
+        font-size: var(--primary-size);
+        width: 80rem;
+        line-height: 1;
+        margin-bottom: 3.6rem;
+        text-align: center;
+      }
+      .search-box {
+        margin: 0 auto;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-50%);
+      }
+      
+      .search-box :first-child{
+        font-size: 3rem;
+        display: none;
+      }
+      .search-box :last-child {
+        cursor: pointer;
+        font-size: 3rem;
+        padding: 1rem 2rem;
+        background-color: var(--nav-color);
+        border:2px solid #7d5b33;
+        border-left: none;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+      #search {
+        padding: 1.4rem 2rem;
+        outline: none;
+        width: 50rem;
+        border:2px solid #7d5b33;
+        background: none;
+        color: var(--main-col);
+        font-size: 1.8rem;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+      }
+      #search:focus  {
+        border: 2px solid rgb(188, 103, 58);
+      }
+      #search::placeholder {
+        color: #ced4da;
+        font-size: 1.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span>Muhammad Shahram</span>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="heros-section">
+        <div class="container">
+          <h1 class="primary-heading">
+            This is my Variables Practice playground
+          </h1>
+          <div class="search-box">
+            <ion-icon name="search-outline"></ion-icon>
+            <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search here"
+            />
+            <ion-icon name="search-outline"></ion-icon>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="Check.Js"></script>
+</html>

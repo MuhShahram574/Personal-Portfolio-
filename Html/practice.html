@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: blue;
+        color: #fff;
+        font-family: sans-serif;
+      }
+      html {
+        font-size: 10px;
+      }
+      .AOS {
+        width: 120rem;
+        margin: 2rem auto;
+        text-align: center;
+      }
+      .Cards {
+        display: grid;
+        margin-top: 50rem;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 8rem;
+        row-gap: 15rem;
+      }
+      .Card {
+        font-size: 3.6rem;
+        background-color: blueviolet;
+        padding: 15rem 20rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="AOS">
+      <h1>Playing with Aniamtion with Scroll (AOS)</h1>
+      <div class="Cards">
+        <div class="Card" data-aos="fade-down-right">Card-2</div>
+        <div class="Card" data-aos="fade-down-left">Card-1</div>
+        <div class="Card" data-aos="fade-down-right">Card-4</div>
+        <div class="Card" data-aos="fade-down-left">Card-3</div>
+        <div class="Card" data-aos="fade-down-right">Card-6</div>
+        <div class="Card" data-aos="fade-down-left">Card-5</div>
+        <div class="Card" data-aos="fade-down-right">Card-6</div>
+        <div class="Card" data-aos="fade-down-left">Card-5</div>
+        <div class="Card" data-aos="fade-down-right">Card-6</div>
+        <div class="Card" data-aos="fade-down-left">Card-5</div>
+        <div class="Card" data-aos="fade-down-right">Card-6</div>
+        <div class="Card" data-aos="fade-down-left">Card-5</div>
+        <div class="Card" data-aos="fade-down-right">Card-6</div>
+        <div class="Card" data-aos="fade-down-left">Card-5</div>
+        <div class="Card" data-aos="zoom-out-down">Card-6</div>
+        <div class="Card" data-aos="zoom-out-down">Card-5</div>
+        <div
+          class="Card"
+          data-aos="fade-down-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
+          Card-6
+        </div>
+        <div
+          class="Card"
+          data-aos="fade-down-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
+          Card-5
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

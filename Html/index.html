@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" type="img" href="/Html/img/favicon.png" />
+    <title>Omnifood &mdash; Never cook again!</title>
+
+    <style>
+      /* 
+
+---01 TYPOGRAPHY SYSTEM
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-Font Weight: 500
+Meadium:500
+Sami-Bold:700
+Bold:800
+
+
+-Line Height
+Default:1
+-1.1--primary-heading 
+1.6--For Paragraph
+
+-letter-spacing :
+0.75px
+
+-- 02 Color
+
+primary: #e67e22
+-Tints:#fff , #fdf2e9,
+
+-Shades:#cf711f, #b8651b
+
+-Accents:
+-Greys:
+#333
+#999
+-- 05 Shadow
+
+-- 06 BORDER RADIUS
+-9px
+
+-- 07 WHITESPACE
+
+-Spacing System (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+*/
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+      }
+
+      a:focus {
+        transition: all 0.3s ease-out;
+        outline: none;
+        background-color: #f0b27a;
+        color: #fff !important;
+        padding: 2px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Rubik", sans-serif;
+        font-weight: 400;
+        color: #333;
+        line-height: 1;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /*////////////////////////////////*/
+      /*- 01 GENRAL REUSEABLE STYLING */
+      /*////////////////////////////////*/
+      a {
+        line-height: 1.4;
+        transition: all 0.3s;
+      }
+
+      a:hover {
+        box-shadow: 0 1px #e67e22;
+      }
+
+      .primary-heading,
+      .secondary-heading,
+      .tertiary-heading,
+      .btn,
+      .subheading,
+      a,
+      p {
+        overflow: hidden;
+      }
+
+      /* ---------------------------- */
+      /* Styling of Reuseable Grid */
+      /* ---------------------------- */
+      .container {
+        max-width: 120rem;
+        padding: 0 3rem;
+        margin: 0 auto;
+      }
+
+      .grid {
+        display: grid;
+        gap: 4.8rem;
+      }
+
+      .grid-col-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-col-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-col-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .align {
+        align-items: center;
+      }
+
+      .v-center {
+        justify-items: center;
+        justify-content: center;
+      }
+
+      .vertical-gap {
+        row-gap: 9.6rem;
+      }
+
+      /* ------------------------ */
+      /* Styling of Headings */
+      /* ------------------------ */
+
+      .primary-heading {
+        font-size: 5.2rem;
+        color: #333;
+        font-weight: 800;
+        line-height: 1.05;
+        letter-spacing: -0.5px;
+        margin-bottom: 4.4rem;
+      }
+
+      .subheading {
+        display: inline-block;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 4.8rem;
+        margin-bottom: 2.8rem;
+        color: #b8651b;
+      }
+
+      .secondary-heading {
+        font-size: 4.4rem;
+        letter-spacing: -0.75px;
+        margin-bottom: 9.6rem;
+        font-weight: 700;
+      }
+
+      .tertiary-heading {
+        font-size: 2.9rem;
+        color: #333;
+        line-height: 1.1;
+        font-weight: 700;
+        margin-bottom: 4.4rem;
+      }
+
+      .Footer-heading {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #555;
+        margin-bottom: 3rem;
+      }
+      .footer-description {
+        font-size: 1.6rem;
+        display: inline-block;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      strong {
+        font-weight: 500;
+      }
+
+      .discription {
+        font-size: 1.8rem;
+        line-height: 1.6;
+      }
+      /* ------------------------ */
+      /* Styling of btn */
+      /* ------------------------ */
+
+      .btn:link,
+      .btn:visited {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 2rem;
+        border-radius: 9px;
+        padding: 12px 24px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn--full:link,
+      .btn--full:visited {
+        background-color: #e67e22;
+        transition-delay: 0s !important ;
+        color: #fff;
+      }
+      .btn--full:hover,
+      .btn--full:active {
+        background-color: #cf711f;
+      }
+
+      .btn--outline:link,
+      .btn--outline:visited {
+        background-color: #fff;
+        transition-delay: 0s !important ;
+        color: #343a40;
+      }
+
+      .btn--outline:hover,
+      .btn--outline:active {
+        background-color: #fdf2e9;
+        box-shadow: inset 0 0 0px 5px #fff;
+      }
+      /* button hover state  */
+      .Btn-hover:active {
+        box-shadow: 0 0 0px 5px #f0b27a;
+      }
+
+      /* ////////////////////////////////////////////////////////////////////////////////////////// */
+
+      #Meals- {
+        background-color: red;
+      }
+      /***************************/
+      /* - 02 HEADER SECTION */
+      /***************************/
+
+      .header {
+        height: 8rem;
+        padding: 0 4.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 5;
+      }
+
+      .header::before {
+        display: block;
+        position: absolute;
+        content: "";
+        background-color: #fdf2e9;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.95;
+        left: 0;
+        right: 0;
+        top: 0;
+      }
+      .logo {
+        height: 2.4rem;
+        opacity: 1;
+      }
+
+      /***************************/
+      /* NAVIGATION */
+      /***************************/
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        opacity: 1;
+      }
+
+      .main-nav-link:link,
+      .main-nav-link:visited {
+        text-decoration: none;
+        color: #343a40;
+        font-weight: 500;
+        font-size: 1.8rem;
+      }
+
+      .main-nav-link:hover,
+      .main-nav-link:active {
+        color: #b8651b;
+      }
+
+      .main-nav-link.main-cta:link,
+      .main-nav-link.main-cta:visited {
+        padding: 0.8rem 1.6rem;
+        display: inline-block;
+        background-color: #e67e22;
+        color: #fff;
+        border-radius: 9px;
+        transition: all 0.3s;
+      }
+      .main-nav-link.main-cta:hover,
+      .main-nav-link.main-cta:active {
+        background-color: #cf711f;
+      }
+
+      /***************************/
+      /* HEROS SECTION */
+      /***************************/
+
+      .heros-section {
+        background-color: #fdf2e9;
+        padding: 4.8rem 0 9.6rem 0;
+        margin-top: 8rem;
+        width: 100vw;
+      }
+      .hero {
+        max-width: 130rem;
+        margin: 0 auto;
+        padding: 0 3.2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 4.8rem;
+      }
+
+      .desription {
+        font-size: 2rem;
+        line-height: 1.6;
+        margin-bottom: 6.4rem;
+      }
+
+      .margin-right-2rem {
+        margin-right: 1.8rem;
+      }
+      .main-img {
+        width: 100%;
+        opacity: 1;
+      }
+      .delivered-customers-box {
+        display: flex;
+        align-items: center;
+        gap: 1.8rem;
+        margin-top: 9.6rem;
+      }
+
+      .delivered-customers {
+        display: flex;
+      }
+      .delivered-customers img {
+        height: 4.8rem;
+        width: 4.8rem;
+        border-radius: 50%;
+        margin-right: -1.8rem;
+        border: 0.4rem solid #fdf2e9;
+      }
+
+      .delivered-customers :last-child {
+        margin: 0;
+      }
+
+      .delivered-customers-box p {
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+      .delivered-customers-box span {
+        color: #b8651b;
+      }
+      /*****************************/
+      /* FEATURED IN SECTION */
+      /*****************************/
+
+      .Featured {
+        padding: 1.2rem;
+      }
+      .featured-in {
+        text-transform: uppercase;
+        color: #999;
+        justify-self: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 2.4rem;
+        margin-top: 3rem;
+      }
+
+      .feature-logos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        filter: brightness(0);
+        opacity: 0.5;
+      }
+      .feature-logos img {
+        height: 2.4rem;
+      }
+
+      /*****************************/
+      /* HOW IT WORKS */
+      /*****************************/
+      .How {
+        background-color: #fff;
+        padding: 4.8rem 0;
+        display: grid;
+      }
+
+      .step-number {
+        font-weight: 700;
+        font-size: 8.6rem;
+        color: #ddd;
+      }
+
+      .step-img-box {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+      }
+      .step-img-box::before,
+      .step-img-box::after {
+        display: block;
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .step-img-box::before {
+        width: 50%;
+        background-color: #fae5d3;
+        padding-bottom: 50%;
+        z-index: 1;
+      }
+      .step-img-box::after {
+        background-color: #fdf2e9;
+        width: 60%;
+        padding-bottom: 60%;
+      }
+
+      .step-img {
+        width: 35%;
+        z-index: 2;
+      }
+
+      /*****************************/
+      /* CARD SECTION*/
+      /*****************************/
+
+      .Meals-section {
+        background-color: #fff;
+        padding: 4.8rem 0;
+        display: grid;
+      }
+
+      .Meals-content {
+        padding: 1.4rem 1rem 2rem 1rem;
+      }
+
+      .Meals {
+        box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.5s;
+      }
+
+      .Meals:hover {
+        transform: translateY(-1.2rem) !important;
+        box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.07);
+      }
+
+      .Meals-tag {
+        background-color: #51cf66;
+        padding: 4px 8px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .tag {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .Meals-title {
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+      }
+
+      .meals-attributes {
+        padding: 2.4rem 4.8rem;
+      }
+      .attributes {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+      }
+
+      .meals-attribute {
+        color: #555;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .Paleo {
+        background-color: #fcc419;
+      }
+      .Vegan {
+        background-color: #94d82d;
+      }
+
+      .meal-photo {
+        width: 100%;
+      }
+
+      ion-icon {
+        color: #e67e22;
+        font-size: 2.4rem;
+        margin-right: 1.8rem;
+      }
+
+      .link:link,
+      .link:visited {
+        font-size: 1.8rem;
+        display: inline-block;
+        margin-top: 4rem;
+        display: flex;
+        line-height: 1.5;
+        color: #e67e22;
+        justify-self: center;
+        text-decoration: none;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: 1px;
+      }
+
+      .link:hover,
+      .link:active {
+        border-bottom: 1px solid transparent;
+        transition: all 0.3s;
+      }
+      /*****************************/
+      /* TESTIMONIAL SECTION*/
+      /*****************************/
+
+      .testimonial-section {
+        background-color: #fdf2e9;
+        padding: 2.4rem;
+        gap: 0;
+      }
+
+      .testimonial-box {
+        padding: 3.6rem;
+      }
+      .testimonial-box-2 {
+        overflow-y: hidden;
+      }
+      .Author-img {
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+      }
+
+      .Author-job {
+        font-size: 1.8rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+      }
+
+      .author-name {
+        font-size: 1.8rem;
+        color: #555;
+      }
+      .gallery-box {
+        gap: 2.4rem;
+      }
+      .Gallery-phtos {
+        max-width: 100%;
+      }
+
+      .gallery-items:hover {
+        overflow: hidden;
+      }
+      .Gallery-phtos:hover {
+        transition: all 01s;
+        /* scale: revert 1.5%; */
+        scale: 1.2;
+      }
+
+      /*****************************/
+      /* PRICING SECTION*/
+      /*****************************/
+
+      .Pricing-Table {
+        padding: 4.8rem;
+      }
+
+      .Starter {
+        font-size: 2.4rem;
+        color: #b8651b;
+        margin: 4.4rem;
+        display: block;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .card {
+        width: 80rem;
+        margin: 0 auto;
+        border: none;
+      }
+
+      .card-1,
+      .card-2 {
+        text-align: center;
+        background-color: #fff;
+        border-radius: 1.2rem;
+      }
+
+      .card-1 {
+        border: 2px solid #fae5d3;
+      }
+
+      .card-2 {
+        background-color: #fdf2e9;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-2::before {
+        content: "best value";
+        font-size: 1.2rem;
+        background-color: #ffd43b;
+        font-weight: bold;
+        padding: 8px 80px;
+        text-transform: uppercase;
+        position: absolute;
+        top: 5%;
+        right: -20%;
+        transform: rotate(45deg);
+      }
+
+      .pricing-plan {
+        margin-bottom: 1.8rem;
+        font-size: 6.4rem;
+        font-weight: 700;
+      }
+
+      .pricing-plan span {
+        font-size: 3.6rem;
+      }
+
+      .deals-details {
+        font-size: 1.8rem;
+        color: #777;
+        letter-spacing: -0.05px;
+      }
+      .offers {
+        text-align: left;
+      }
+
+      .offers-list {
+        margin-left: 3.6rem;
+        margin-top: 4rem;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+
+      .offer {
+        font-size: 2rem;
+        color: #555;
+        z-index: 20;
+      }
+
+      .pricing-btn {
+        display: flex;
+        justify-self: center;
+        margin: 4.4rem;
+      }
+
+      .parsel {
+        font-size: 1.6rem;
+        text-align: center;
+        grid-column: 1/-1;
+      }
+
+      .features-row {
+        margin: 9.6rem 0;
+      }
+      .title {
+        font-size: 2.4rem;
+        font-weight: 600;
+        margin: 1.2rem 0;
+      }
+
+      .feature-icon {
+        background-color: #fdf2e9;
+        border-radius: 50%;
+        padding: 1.5rem;
+        font-size: 3.6rem;
+        margin-bottom: 2.5rem;
+      }
+
+      /*****************************/
+      /* BOOKING SECTION*/
+      /*****************************/
+
+      #booking-section {
+        max-width: 120rem;
+        margin: 0 auto;
+        padding: 1rem;
+      }
+      .booking-container {
+        opacity: 0.9;
+        border-radius: 9px;
+        background-color: #e67e22;
+        column-gap: 3rem;
+        display: grid;
+        overflow: hidden;
+        grid-template-columns: 2fr 1fr;
+        margin-bottom: 10rem;
+        box-shadow: 0px 6px 11px 0px rgba(0, 0, 0, 0.27);
+      }
+
+      .booking-heading {
+        margin-bottom: 3.6rem;
+      }
+
+      .booking-description {
+        margin-bottom: 3.6rem;
+        font-size: 1.8rem;
+      }
+      .box-1 {
+        padding: 4.8rem 4.4rem 0 4.4rem;
+        margin-bottom: 0;
+      }
+      .booking-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 7.4rem;
+        row-gap: 3rem;
+        align-items: end;
+        justify-content: center;
+        overflow-y: hidden;
+        margin-bottom: 6.4rem;
+      }
+      .form-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-size: 1.6rem;
+        margin-bottom: 1.4rem;
+        font-weight: 600;
+        margin-left: 8px;
+      }
+      input {
+        padding: 12px;
+        font-size: 1.8rem;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+      }
+
+      input::placeholder {
+        color: #999;
+      }
+      input:hover {
+        overflow: hidden;
+      }
+
+      .Select-option::placeholder {
+        color: #333;
+      }
+
+      select {
+        padding: 12px;
+        font-size: 1.8rem;
+        border: none;
+        border-radius: 9px;
+        outline: none;
+      }
+
+      .signup-btn {
+        padding: 16px;
+        display: inline-block;
+        font-size: 1.8rem;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        font-size: 2rem;
+        background-color: #4a280b;
+        color: #fff;
+      }
+
+      .signup-btn:hover {
+        background-color: #fff;
+        color: #4a280b;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .booking-img {
+        background-image: url(/Html/img/eating.jpg);
+        opacity: 0.8;
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* ----------------------- */
+      /* FOOTER STYLING START */
+      /* -------------------------- */
+      .Footer-section {
+        margin: 6.8rem auto;
+        background-color: white;
+        padding: 2rem 0;
+        overflow: hidden;
+      }
+
+      .Footer-section ul {
+        padding-left: 0px;
+      }
+      .footer-col {
+        display: grid;
+        grid-template-columns: 1.5fr 1.3fr 1fr 1fr 1fr;
+        gap: 4.8rem;
+      }
+      .footer-logo {
+        margin-bottom: 2.4rem;
+        display: block;
+      }
+      .social-link {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 2rem;
+        margin-bottom: 4.8rem;
+      }
+
+      .social-link a {
+        color: #555;
+        display: inline-block;
+        transition: all 0.5s;
+        border-radius: 4px;
+      }
+
+      .social-link a:hover {
+        background-color: #ddd;
+        box-shadow: none;
+      }
+
+      .social-link ion-icon {
+        padding: 2px;
+        fill: #666;
+        margin: 0;
+      }
+
+      .footer-logo img {
+        height: 1.8rem;
+      }
+
+      /* contact-col Styling */
+
+      .contact-col .footer-description {
+        margin-bottom: 3rem;
+      }
+
+      .Contact {
+        text-decoration: none;
+        color: #666;
+        font-size: 1.6rem;
+        line-height: 1.6;
+      }
+
+      .nav-col-ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+      .nav-col-ul li a {
+        display: inline-block;
+        font-size: 1.6rem;
+        text-decoration: none;
+        color: #666;
+      }
+
+      /* /////////////////////////////////////////// */
+      /* changes when width is less then 1365px */
+      /* /////////////////////////////////////////// */
+
+      @media only screen and (max-width: 1370px) {
+        .primary-heading {
+          font-size: 4.4rem;
+          font-weight: 700;
+        }
+        .gallery-box {
+          grid-template-columns: 1fr 1fr;
+        }
+        .testimonial-section {
+          align-items: center;
+        }
+      }
+      /* /////////////////////////////////////////// */
+      /* changes when width is less then 1200px */
+      /* /////////////////////////////////////////// */
+
+      @media only screen and (max-width: 1200px) {
+        .meals-attributes {
+          padding: 2.4rem 3rem;
+        }
+        .attributes {
+          padding-left: 1rem;
+        }
+        .testimonial-section {
+          grid-template-columns: 1fr;
+        }
+        .gallery-box {
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+        .secondary-heading {
+          font-size: 3.6rem;
+        }
+
+        .card {
+          padding: 0;
+        }
+      }
+
+      /* /////////////////////////////////////////// */
+      /* changes when width is less then 995px */
+      /* /////////////////////////////////////////// */
+
+      @media only screen and (max-width: 995px) {
+        /*////////// General & Font Styling ////////// */
+        .secondary-heading {
+          font-size: 3rem;
+          margin-bottom: 6rem;
+        }
+        .tertiary-heading {
+          font-size: 2rem;
+          margin-bottom: 3.6rem;
+        }
+
+        .btn:link,
+        .btn:visited {
+          font-size: 1.8rem;
+          padding: 8px 18px;
+        }
+
+        .step-number {
+          font-size: 6.4rem;
+        }
+
+        .meals-attributes,
+        .offer,
+        .description,
+        .booking-description {
+          font-size: 1.6rem;
+          line-height: 1.4;
+        }
+        /*/////////////// Header styling ///////////////*/
+
+        .header {
+          flex-direction: column;
+          height: auto;
+        }
+
+        .logo {
+          margin: 2rem 0 2.4rem;
+        }
+        .header-img {
+          height: auto;
+          /* background-color: red; */
+
+          display: flex;
+          justify-self: center;
+        }
+        .delivered-customers-box {
+          margin-top: 2.4em;
+          justify-content: center;
+        }
+        /*//////////////// Hero's Section styling ////////////////*/
+        .hero {
+          text-align: center;
+          grid-template-columns: 1fr;
+        }
+        /*//////////////// Featured section ////////////////*/
+        .feature-logos img {
+          margin-bottom: 1.4rem;
+        }
+        .Featured {
+          font-size: 50%;
+        }
+
+        /*////////////// Meal's Section /////////////// */
+        .Meals-content {
+          grid-template-columns: 1fr 1fr;
+        }
+        .list {
+          grid-column: 1 / span 2;
+          justify-self: center;
+          border: 2px solid #fae5d3;
+          padding: 2.4rem;
+          border-radius: 9px;
+          width: 30rem;
+        }
+        .Meals-title {
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+        }
+
+        /*//////////////// Pricing Section & Featured Row ////////////////*/
+
+        .pricing .box-1 {
+          padding-top: 0;
+        }
+        .card {
+          width: auto;
+          margin: auto;
+          justify-content: center;
+        }
+        .offers-list {
+          margin: 2rem 0 0 0;
+        }
+        .attributes {
+          padding: 0;
+          gap: 1.4rem;
+        }
+        .features-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .feature-icon {
+          padding: 0.8rem;
+          font-size: 2.8rem;
+        }
+
+        /*//////////////// Booking Section ////////////////*/
+
+        .booking-form {
+          grid-template-columns: 1fr;
+          row-gap: 2rem;
+        }
+        .booking-heading {
+          margin-bottom: 3rem;
+        }
+        .booking-container {
+          grid-template-columns: 2fr 1.3fr;
+        }
+        .box-1 {
+          padding: 3.8rem 2.6rem 0 3.2rem;
+        }
+
+        /*//////////////// Footer Section ////////////////*/
+
+        .Footer-section {
+          max-width: 80%;
+        }
+        .footer-col {
+          column-gap: 2rem;
+          row-gap: 6.4rem;
+          width: auto;
+          justify-self: center;
+          padding: 2rem;
+          margin: 0;
+          grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+        }
+        .nav-col-ul li a,
+        .footer-description {
+          font-size: 1.4rem;
+        }
+        .feature-logos {
+          flex-wrap: wrap;
+        }
+      }
+
+      /* /////////////////////////////////////////// */
+      /* changes when width is less then 768px */
+      /* /////////////////////////////////////////// */
+      @media only screen and (max-width: 768px) {
+        /*////////// General Styling //////////*/
+        .container {
+          padding: 2rem;
+          width: auto;
+        }
+        a {
+          font-size: 1.2rem;
+        }
+        .primary-heading {
+          font-size: 3.6rem;
+        }
+        .secondary-heading {
+          font-size: 2.4rem;
+        }
+        .tertiary-heading {
+          margin-bottom: 2.4rem;
+          font-size: 2rem;
+        }
+
+        .step-number {
+          font-size: 5.4rem;
+        }
+        .discription,
+        .Author-job,
+        .meals-attributes,
+        .Footer-description {
+          font-size: 1.4rem;
+        }
+
+        /*////////// Featured & Meals Section //////////*/
+
+        .feature-logos {
+          flex-wrap: wrap;
+          margin-bottom: 1.4rem;
+        }
+
+        .Meals-title {
+          font-size: 1.8rem;
+        }
+
+        /*////////// Testimonial, Featured-Row & Booking Section //////////*/
+
+        .Featured {
+          font-size: 15%;
+        }
+
+        .gallery-box {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+
+        .booking-container {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        /*////////// Footer Section //////////*/
+
+        .footer-col {
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          row-gap: 4.4rem;
+          column-gap: 4.8rem;
+        }
+
+        .logo-col {
+          grid-column: 1/4;
+          grid-row: 2/3;
+        }
+
+        .contact-col {
+          grid-column: 4/-1;
+          grid-row: 2/3;
+        }
+
+        .nav-col {
+          grid-row: 1;
+          grid-column: span 2;
+        }
+      }
+
+      /* /////////////////////////////////////////// */
+      /* changes when width is less then 665px */
+      /* /////////////////////////////////////////// */
+
+      @media only screen and (max-width: 665px) {
+        /* Header  & hero's Section */
+        .main-nav ul {
+          display: none;
+        }
+        .delivered-customers img {
+          height: 3.8rem;
+        }
+
+        .btn-box :first-child {
+          margin-bottom: 1rem;
+        }
+        .heros-section {
+          padding-top: 0;
+          margin-top: 6rem;
+        }
+
+        .hero {
+          padding: 1rem;
+        }
+        /* Featured Section */
+        .feature-logos {
+          flex-wrap: wrap;
+        }
+
+        .feature-logos img {
+          margin-bottom: 1.4rem;
+        }
+        /* How it works */
+
+        .direction-reverse {
+          flex-direction: column-reverse !important;
+        }
+
+        .Z-Patren {
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Meals Section */
+        .Meals-section {
+          padding: 0;
+        }
+        .Meals-content {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        /* Testimonial section */
+
+        .testimonial-box {
+          padding: 1.2rem;
+        }
+        .testimonial-box-2 {
+          grid-template-columns: 1fr;
+        }
+        .gallery-box {
+          gap: 1.2rem;
+        }
+
+        /* Pricing Section */
+
+        .card {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+        }
+
+        .card-2::before {
+          top: 7%;
+          right: -18%;
+        }
+
+        /* Features-row section */
+
+        .features-row {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          margin: 4.8rem 0;
+        }
+        /* Booking Section section */
+        .booking-container {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          row-gap: 3rem;
+        }
+
+        .booking-container .box-1 {
+          padding: 1.2rem 2.4rem 0 2.4rem;
+        }
+        .booking-form {
+          margin-bottom: 2rem;
+        }
+        label {
+          margin-bottom: 1rem;
+        }
+        select {
+          margin-bottom: 1.2rem;
+        }
+        .booking-img {
+          grid-row: 1/2;
+        }
+
+        /* Footer Section */
+        .Footer-section {
+          max-width: 100%;
+          text-align: center;
+        }
+        .footer-col {
+          padding: 1.2rem;
+          gap: 1.2rem;
+        }
+        .footer-logo {
+          margin-bottom: 1.6rem;
+        }
+        .social-link {
+          justify-content: center;
+          margin-bottom: 3rem;
+          gap: 1rem;
+        }
+        .Footer-heading {
+          margin-bottom: 2.2rem;
+        }
+        .contact-col .footer-description {
+          margin-bottom: 2.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ////////////////////////////// -->
+    <!-- This is Header Section -->
+    <!-- ////////////////////////////// -->
+
+    <header class="header">
+      <a href="#">
+        <img
+          src="img/omnifood-logo.png"
+          alt="omnifood-logo"
+          class="logo"
+          data-aos="flip-right"
+      /></a>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Navigation Bar -->
+      <!-- ////////////////////////////// -->
+
+      <nav class="main-nav">
+        <ul>
+          <li data-aos="fade-up">
+            <a href="#How" class="main-nav-link">How It works</a>
+          </li>
+          <li data-aos="fade-down">
+            <a href="#Meals-section" class="main-nav-link">Meals</a>
+          </li>
+          <li data-aos="fade-up">
+            <a href="#testimonial-section" class="main-nav-link">Testimonial</a>
+          </li>
+          <li data-aos="fade-down">
+            <a href="#pricing" class="main-nav-link">Pricing</a>
+          </li>
+          <li data-aos="fade-up">
+            <a href="#booking-section" class="main-nav-link main-cta"
+              >Try for Free</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ////////////////////////////// -->
+      <!-- This is Hero's Section -->
+      <!-- ////////////////////////////// -->
+
+      <section class="heros-section">
+        <div class="hero">
+          <div class="heros-text">
+            <h1 class="primary-heading" data-aos="fade-right">
+              A healthy meal delivered to your door, every single day
+            </h1>
+            <p class="desription" data-aos="fade-up" data-aos-delay="300">
+              The smart 365-days-per-year food subscription that will make you
+              eat healthy again. Tailored to your personal tastes and
+              nutritional needs.
+            </p>
+
+            <div class="btn-box">
+              <a
+                href="#booking-section"
+                class="btn btn--full margin-right-2rem"
+                data-aos="fade-left"
+                data-aos-delay="600"
+                >Start eating well
+              </a>
+              <a
+                href="#How"
+                class="btn btn--outline"
+                data-aos="fade-right"
+                data-aos-delay="600"
+                >Learn more &darr;</a
+              >
+            </div>
+
+            <div class="delivered-customers-box">
+              <div class="delivered-customers">
+                <img
+                  src="img/customers/customer-1.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-up"
+                  data-aos-delay="900"
+                />
+                <img
+                  src="img/customers/customer-2.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-down"
+                  data-aos-delay="900"
+                />
+                <img
+                  src="img/customers/customer-3.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-up"
+                  data-aos-delay="900"
+                />
+                <img
+                  src="img/customers/customer-4.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-down"
+                  data-aos-delay="900"
+                />
+                <img
+                  src="img/customers/customer-5.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-up"
+                  data-aos-delay="900"
+                />
+                <img
+                  src="img/customers/customer-6.jpg"
+                  alt="customer-photo"
+                  data-aos="fade-down"
+                  data-aos-delay="900"
+                />
+              </div>
+              <p data-aos="fade-right" data-aos-delay="1200">
+                <span>250,000+</span> meals delivered in last year!
+              </p>
+            </div>
+          </div>
+
+          <div class="header-img" data-aos="zoom-in" data-aos-delay="300">
+            <img
+              src="img/hero.png"
+              class="main-img"
+              alt="A laidy eating a dilecious Food and some healthy food photos"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Feature-Row Section -->
+      <!-- ////////////////////////////// -->
+
+      <section
+        class="Featured"
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+      >
+        <!-- <div class="container"> -->
+        <div class="featured-in">
+          <span>As Featured in</span>
+        </div>
+        <div class="feature-logos">
+          <img src="/Html/img/logos/techcrunch.png" alt="Techcrunch" />
+          <img
+            src="/Html/img/logos/business-insider.png"
+            alt="business-inside"
+          />
+          <img
+            src="/Html/img/logos/the-new-york-times.png"
+            alt="The-new-york-times"
+          />
+          <img src="/Html/img/logos/forbes.png" alt="Forbes" />
+          <img src="/Html/img/logos/usa-today.png" alt="Techcrunch" />
+        </div>
+        <!-- </div> -->
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is How it work's Section -->
+      <!-- ////////////////////////////// -->
+
+      <section id="How" class="container">
+        <div class="container Section-how">
+          <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+            <span class="subheading">How it works</span>
+            <h2 class="secondary-heading">
+              Your daily dose of health in 3 simple steps
+            </h2>
+          </div>
+
+          <div class="grid vertical-gap">
+            <!-- FIRST STEP -->
+            <div class="Z-Patren grid grid-col-2 align">
+              <div class="step-content">
+                <div class="step-number" data-aos="fade-right">01</div>
+                <h3 class="tertiary-heading" data-aos="fade-right">
+                  Tell us what you like (and what not)
+                </h3>
+                <p class="discription" data-aos="fade-right">
+                  Never again waste time thinking about what to eat! Omnifood AI
+                  will create a 100% personalized weekly meal plan just for you.
+                  It makes sure you get all the nutrients and vitamins you need,
+                  no matter what diet you follow!
+                </p>
+              </div>
+              <div class="step-img-box" data-aos="fade-left">
+                <img
+                  src="/Html/img/app/app-screen-1.png"
+                  alt=""
+                  class="step-img"
+                />
+              </div>
+            </div>
+            <!-- step-2 -->
+            <div class="direction-reverse Z-Patren grid grid-col-2 align">
+              <div class="step-img-box" data-aos="fade-right">
+                <img
+                  src="img/app/app-screen-2.png"
+                  alt="iPhone app
+            preferences selection screen"
+                  class="step-img"
+                />
+              </div>
+              <div class="step-content">
+                <div class="step-number" data-aos="fade-up">02</div>
+                <h3 class="tertiary-heading" data-aos="fade-up">
+                  Approve your weekly meal plan
+                </h3>
+                <p class="discription" data-aos="fade-up">
+                  Approve your weekly meal plan Once per week, approve the meal
+                  plan generated for you by Omnifood AI. You can change
+                  ingredients, swap entire meals, or even add your own recipes.
+                </p>
+              </div>
+            </div>
+            <!-- step-3 -->
+            <div class="Z-Patren grid grid-col-2 align">
+              <div class="step-content">
+                <div class="step-number" data-aos="fade-right">03</div>
+                <h3 class="tertiary-heading" data-aos="fade-right">
+                  Receive meals at convenient time
+                </h3>
+                <p class="discription" data-aos="fade-right">
+                  Receive meals at convenient time: Best chefs in town will cook
+                  your selected meal every day, and we will deliver it to your
+                  door whenever works best for you. You can change delivery
+                  schedule and address daily!
+                </p>
+              </div>
+              <div class="step-img-box">
+                <img
+                  src="img/app/app-screen-1.png"
+                  alt="iPhone app
+            preferences selection screen"
+                  class="step-img"
+                  data-aos="fade-left"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Meals Section -->
+      <!-- ////////////////////////////// -->
+
+      <section id="Meals-section" class="Meals-section container">
+        <div class="container">
+          <div
+            class="v-center"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
+            <span class="subheading">Meals</span>
+            <h2 class="secondary-heading">
+              Omnifood AI chooses from 5,000+ recipes
+            </h2>
+          </div>
+          <div class="grid grid-col-3 Meals-content">
+            <!-- 1st Card  -->
+            <div class="Meals" data-aos="fade-right">
+              <img
+                src="img/meals/meal-1.jpg"
+                alt="Japanese Gyozas"
+                class="meal-photo"
+              />
+              <div class="meals-attributes">
+                <div class="Meals-tag"><span class="tag">Vegetarian</span></div>
+                <h3 class="Meals-title">Japanese Gyozas</h3>
+
+                <ul class="attributes">
+                  <li class="meals-attribute">
+                    <ion-icon name="flame-outline"></ion-icon
+                    ><strong>650</strong>&nbsp; Calories
+                  </li>
+                  <li class="meals-attribute">
+                    <ion-icon name="restaurant-outline"></ion-icon> NutriScore
+                    &reg; <strong>74</strong>
+                  </li>
+                  <li class="meals-attribute">
+                    <ion-icon name="star-outline"></ion-icon>
+                    <strong>4.9</strong> &nbsp;rating (537)
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- 2nd Card -->
+            <div class="Meals" data-aos="fade-up">
+              <img
+                src="img/meals/meal-2.jpg"
+                alt="Japanese Gyozas"
+                class="meal-photo"
+              />
+              <div class="meals-attributes">
+                <div class="Meals-tag Vegan">
+                  <span class="tag">Vegan</span>
+                </div>
+                <div class="Meals-tag Paleo">
+                  <span class="tag">Paleo</span>
+                </div>
+                <h3 class="Meals-title">Avocado Salad</h3>
+
+                <ul class="attributes">
+                  <li class="meals-attribute">
+                    <ion-icon name="flame-outline"></ion-icon
+                    ><strong>400</strong> &nbsp;Calories
+                  </li>
+                  <li class="meals-attribute">
+                    <ion-icon name="restaurant-outline"></ion-icon> NutriScore
+                    &reg; &nbsp;<strong>90</strong>
+                  </li>
+                  <li class="meals-attribute">
+                    <ion-icon name="star-outline"></ion-icon>
+                    <strong>4.8</strong> &nbsp;rating (441)
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- list of offers -->
+            <div class="list" data-aos="fade-left">
+              <h3 class="tertiary-heading">Works with any diet:</h3>
+              <ul class="attributes">
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Vegetarian</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Vegan</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Pescatarian</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Gluten-free</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Lactose-free</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Keto</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Paleo</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Low FODMAP</span>
+                </li>
+                <li class="meals-attribute">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Kid-friendly</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="details" data-aos="fade-right">
+            <a href="#" class="link">See all recipes &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Testimonial Section -->
+      <!-- ////////////////////////////// -->
+
+      <section
+        id="testimonial-section"
+        class="testimonial-section grid grid-col-2"
+      >
+        <!-- <div class="grid grid-col-2"> -->
+        <div class="testimonial-box">
+          <div class="Testimonial-box-1" data-aos="fade-right">
+            <span class="subheading">Testimonial</span>
+            <h2 class="secondary-heading">
+              Once you try it, you can't go back
+            </h2>
+          </div>
+          <div class="testimonial-box-2 grid grid-col-2">
+            <figure
+              class="testimonial"
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+            >
+              <img
+                src="img/customers/dave.jpg"
+                alt="Dave Bryson"
+                class="Author-img"
+              />
+              <blockquote class="Author-job">
+                Inexpensive, healthy and great-tasting meals, without even
+                having to order manually! It feels truly magical.
+              </blockquote>
+              <p class="author-name">-Dave Bryson</p>
+            </figure>
+            <figure
+              class="testimonial"
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+            >
+              <img
+                src="img/customers/ben.jpg"
+                alt="Dave Bryson"
+                class="Author-img"
+              />
+              <blockquote class="Author-job">
+                The AI algorithm is crazy good, it chooses the right meals for
+                me every time. It's amazing not to worry about food anymore!
+              </blockquote>
+              <p class="author-name">-Ben Hadley</p>
+            </figure>
+            <figure
+              class="testimonial"
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+            >
+              <img
+                src="img/customers/steve.jpg"
+                alt="Dave Bryson"
+                class="Author-img"
+              />
+              <blockquote class="Author-job">
+                Onifood is a life saver! I just started a company, so there's no
+                time for cooking. I couldn't live without my daily meals now!
+              </blockquote>
+              <p class="author-name">-Steve Miller</p>
+            </figure>
+            <figure
+              class="testimonial"
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+            >
+              <img
+                src="img/customers/hannah.jpg"
+                alt="Dave Bryson"
+                class="Author-img"
+              />
+              <blockquote class="Author-job">
+                I got Omnifood for the whole family, and it frees up so much
+                time! Plus, everything is organic and vegan and without plastic.
+              </blockquote>
+              <p class="author-name">-Hannah Smith</p>
+            </figure>
+          </div>
+        </div>
+        <div class="gallery" data-aos="fade-left">
+          <div class="gallery-box grid grid-col-3">
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-1.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-2.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-3.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-4.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-5.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-6.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-7.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-8.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-9.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-10.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-11.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+            <div class="gallery-items">
+              <img
+                src="img/gallery/gallery-12.jpg"
+                class="Gallery-phtos"
+                alt="Gallery photos"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Pricing Section -->
+      <!-- ////////////////////////////// -->
+
+      <section id="pricing" class="pricing Pricing-Table container">
+        <div class="box-1" data-aos="fade-right">
+          <span class="subheading">Pricing</span>
+          <h2 class="secondary-heading">
+            Eating well without breaking the bank
+          </h2>
+        </div>
+        <div class="card grid grid-col-2">
+          <!-- styling of card-1  -->
+          <div class="card-1" data-aos="fade-right">
+            <span class="Starter">Starter</span>
+            <p class="pricing-plan">
+              <span>$</span>
+              399
+            </p>
+            <div class="deals-details">
+              per month. That's just $13 per meal!
+            </div>
+            <div class="offers">
+              <ul class="offers-list">
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>1 meal per day</span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Order from 11am to 9pm </span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Delivery is free </span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="close-outline"></ion-icon>
+                </li>
+              </ul>
+            </div>
+            <a href="#booking-section" class="btn btn--full pricing-btn"
+              >Start eating well</a
+            >
+          </div>
+          <!-- styling of card-2 -->
+          <div class="card-2" data-aos="fade-left">
+            <span class="Starter">Complete</span>
+
+            <p class="pricing-plan">
+              <span>$</span>
+              399
+            </p>
+            <div class="deals-details">
+              per month. That's just $11 per meal!
+            </div>
+            <div class="offers">
+              <ul class="offers-list">
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span><strong>2 meals</strong> per day </span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Order <strong>24/7</strong> </span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon
+                  ><span>Delivery is free </span>
+                </li>
+                <li class="offer">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                  <span>Get access to latest recipes</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#booking-section" class="btn btn--full pricing-btn"
+              >Start eating well</a
+            >
+          </div>
+          <p class="parsel" data-aos="fade-right">
+            Prices include all applicable taxes. You can cancel at any time.
+            Both plans include the following:
+          </p>
+        </div>
+
+        <div id="features-row" class="features-row grid grid-col-4">
+          <div class="feature" data-aos="fade-right">
+            <ion-icon name="infinite-outline" class="feature-icon"></ion-icon>
+            <p class="title">Never cook again!</p>
+            <p class="discription">
+              Our subscriptions cover 365 days per year, even including major
+              holidays.
+            </p>
+          </div>
+          <div class="feature" data-aos="fade-up">
+            <ion-icon name="nutrition-outline" class="feature-icon"></ion-icon>
+            <p class="title">Local and organic</p>
+            <p class="discription">
+              Our cooks only use local, fresh, and organic products to prepare
+              your meals.
+            </p>
+          </div>
+          <div class="feature" data-aos="fade-up">
+            <ion-icon name="leaf-outline" class="feature-icon"></ion-icon>
+            <p class="title">No waste</p>
+            <p class="discription">
+              All our partners only use reusable containers to package all your
+              meals.
+            </p>
+          </div>
+          <div class="feature" data-aos="fade-left">
+            <ion-icon name="pause-outline" class="feature-icon"></ion-icon>
+            <p class="title">Pause anytime</p>
+            <p class="discription">
+              Going on vacation? Just pause your subscription, and we refund
+              unused days.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ////////////////////////////// -->
+      <!-- This is Booking Section -->
+      <!-- ////////////////////////////// -->
+
+      <section id="booking-section" data-aos="zoom-in-up">
+        <div class="booking-container grid">
+          <div class="box-1">
+            <h2 class="secondary-heading booking-heading" data-aos="fade-right">
+              Get your first meal for free!
+            </h2>
+            <p class="desription booking-description" data-aos="fade-right">
+              Healthy, tasty and hassle-free meals are waiting for you. Start
+              eating well today. You can cancel or pause anytime. And the first
+              meal is on us!
+            </p>
+            <!-- Sign-in  Form  -->
+            <form action="" class="booking-form">
+              <div class="form-item" data-aos="fade-down-right">
+                <label for="First Name">First Name</label>
+                <input
+                  type="text"
+                  class="Btn-hover"
+                  name="First Name"
+                  id="First Name"
+                  placeholder="First Name"
+                  required
+                />
+              </div>
+              <div class="form-item" data-aos="fade-down-left">
+                <label for="Email address">Email addres</label>
+                <input
+                  type="email"
+                  class="Btn-hover"
+                  name="Email addres"
+                  id="Email address"
+                  placeholder="Example@gmail.com"
+                  required
+                />
+              </div>
+              <div class="form-item" data-aos="fade-up-right">
+                <label for="Select-option">Where did you hear from us?</label>
+                <select id="Select-option" required>
+                  <option value="">Please choose one option:</option>
+                  <option value="Friends">Family and Friends</option>
+                  <option value="YouTube ">YouTube Video</option>
+                  <option value="Podcast">Podcast</option>
+                  <option value="ad">Facebook ad</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <input
+                class="signup-btn"
+                type="submit"
+                value="Sign up now"
+                data-aos="fade-up-left"
+              />
+            </form>
+          </div>
+          <div
+            class="booking-img"
+            role="img"
+            aria-label="Woman is Enjoying food"
+          ></div>
+        </div>
+      </section>
+
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+    </main>
+    <hr />
+
+    <!-- ////////////////////////////// -->
+    <!-- This is Footer Section -->
+    <!-- ////////////////////////////// -->
+
+    <footer id="Footer" class="Footer-section">
+      <div class="container footer-col">
+        <div class="logo-col" data-aos="fade-right">
+          <div class="footer-logo">
+            <a href="#"
+              ><img src="/Html/img/omnifood-logo.png" alt="Omnifood-logo"
+            /></a>
+          </div>
+          <ul class="social-link">
+            <li>
+              <a href="#"><ion-icon name="logo-apple"></ion-icon></a>
+            </li>
+            <li>
+              <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+            </li>
+            <li>
+              <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            </li>
+          </ul>
+          <p class="footer-description">
+            Copyright &copy; 2027 by Omnifood, Inc. All rights reserved.
+          </p>
+        </div>
+
+        <div class="contact-col" data-aos="fade-up">
+          <p class="Footer-heading">Contact us</p>
+          <p class="footer-description">
+            623 Harrison St., 2nd Floor, San Francisco, CA 94107
+          </p>
+          <a href="#" class="Contact">0304-8023463</a>
+          <br />
+          <a href="#" class="Contact">hello@omnifood.com</a>
+        </div>
+
+        <nav class="nav-col" data-aos="fade-up">
+          <p class="Footer-heading">Account</p>
+          <ul class="nav-col-ul">
+            <li><a href="#"> Create Account</a></li>
+            <li><a href="#"> Sign up</a></li>
+            <li><a href="#"> iOS App</a></li>
+            <li><a href="#"> Android app</a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col" data-aos="fade-up">
+          <p class="Footer-heading">Company</p>
+          <ul class="nav-col-ul">
+            <li><a href="#"> About Omnifood</a></li>
+            <li><a href="#"> For Business</a></li>
+            <li><a href="#"> Cooking Partners</a></li>
+            <li><a href="#"> Careers </a></li>
+          </ul>
+        </nav>
+
+        <nav class="nav-col" data-aos="fade-left">
+          <p class="Footer-heading">Resources</p>
+          <ul class="nav-col-ul">
+            <li><a href="#"> Recipe directiry</a></li>
+            <li><a href="#"> Help center</a></li>
+            <li><a href="#"> Privacy & Terms</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      AOS.init({
+        once: true, // Animation har scroll par repeat hogi
+        mirror: true, // Animation reverse bhi hogi jab scroll back karenge
+        offset: 100, // Animation start hone ka distance (pixels)
+      });
+    </script>
+  </body>
+</html>

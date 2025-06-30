@@ -1,0 +1,215 @@
+/* //////////////////////// */
+/* MEDIA QUERIES - TABLETS (≤1200px) */
+/* //////////////////////// */
+@media (max-width: 1200px) {
+  .skills-grid,
+  .tools-grid,
+  .contact-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* //////////////////////// */
+/* MEDIA QUERIES - TABLETS (≤1024px) */
+/* //////////////////////// */
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 9px;
+  }
+  .container {
+    max-width: 85%;
+  }
+  .section-tagline {
+    text-align: center;
+  }
+}
+
+/* //////////////////////// */
+/* MEDIA QUERIES - TABLETS (≤768px) */
+/* //////////////////////// */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 9px;
+  }
+
+  .skills-grid,
+  .tools-grid,
+  .contact-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .container {
+    max-width: 95%;
+  }
+  .scroll {
+    font-size: 90%;
+  }
+  .scroll-down {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+  }
+
+  .header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1000;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .navbar ul li a {
+    display: block;
+    padding: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .btn-box {
+    align-self: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    padding: 0 2rem;
+    max-width: 80%;
+  }
+
+  .education-timeline::after {
+    left: 1rem;
+    margin-left: 4rem;
+  }
+
+  .education-item {
+    margin-left: 4rem;
+    width: 90%;
+    float: none;
+    padding: 0 0 0 3rem;
+  }
+
+  .education-item.left {
+    padding-right: 0;
+  }
+
+  .education-item.right {
+    margin-top: 0;
+    padding-left: 3rem;
+    float: left;
+  }
+
+  .education-item.left::after,
+  .education-item.right::after {
+    left: 0;
+    right: auto;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    max-width: 85%;
+  }
+}
+/* //////////////////////// */
+/* MEDIA QUERIES - MOBILES (≤480px) */
+/* //////////////////////// */
+
+@media (max-width: 480px) {
+
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .navbar ul li a {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
+  .scroll-up {
+    font-size: 10%;
+  }
+  .scroll-down {
+    display: none;
+  }
+
+
+  .hero {
+    gap: 2rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1.4rem;
+  }
+
+  .about-section {
+    padding: 4rem 1rem;
+  }
+
+  .primary-heading {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 600;
+    background: linear-gradient(45deg, #34e5ff, #3772ff, #34e5ff);
+    background-size: 200% auto;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: gradient-1 3s linear infinite;
+  }
+  .project-content {
+    padding: 2rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .education-timeline::after {
+    left: 1rem;
+  }
+
+  .education-item {
+    width: 100%;
+    float: none;
+    padding: 0 0 0 3rem;
+  }
+  .section-tagline {
+    text-align: center;
+  }
+}
